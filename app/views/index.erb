@@ -1,1 +1,19 @@
 <h1>My Robots</h1>
+<form action="/" method="GET">
+  <button type="submit" class="btn btn-primary"/>Back to the Dashboard</button>
+</form>
+<% @robots.each do |robot| %>
+  <div class='box'>
+    <img src="https://robohash.org/<%= robot.name %>">
+    <h3><a href="/robots/<%= robot.id %>"><%= robot.name %></a></h3>
+    <p>Location: <%= robot.city + ', ' + robot.state %></p>
+    <p>Department: <%= robot.department %></p>
+
+    <form action="/robots/<%= robot.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <a href="/robots/<%= robot.id  %>/edit" class="btn btn-warning">Edit</a>
+      <input type="submit" class="btn btn-danger" value="Delete"/>
+    </form>
+  </div>
+<% end %>
+<br>

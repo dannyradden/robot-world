@@ -1,0 +1,12 @@
+<a href="/robots">Robot Index</a>
+<br>
+<img src="https://robohash.org/<%= @robot.name %>">
+<h1>Name: <%= @robot.name %></h1>
+<p>Location: <%= @robot.city + ", " + @robot.state %></p>
+<p>Department: <%= @robot.department %></p>
+
+<a href="/robots/<%= @robot.id  %>/edit">Edit</a>
+<form action="/robots/<%= @robot.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="delete"/>
+</form>
