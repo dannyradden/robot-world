@@ -1,21 +1,26 @@
 <h1>Welcome to the Robot Manager</h1>
-<h2>Statistical Data</h2>
+  <h2>Statistical Data</h2>
 
-<ul class="list-unstyled">
-  <li><h4>Total Robot Count: <%= @robot_data[:count] %></h4></li>
-  <% @robot_data.each do |k, v| %>
-    <%if v.class == Hash %>
-      <li><h4>Robots in each <%= k.capitalize %>:</h4>
-        <ul>
-        <% v.each do |data, count| %>
-          <li><%= data + ": " + count.to_s %></li>
-        <% end %>
-        </ul>
-      </li>
+
+    <div class="box">
+      <h4>Total Robots</h4>
+      <%= @robot_data[:count] %>
+    </div>
+    <% @robot_data.each do |k, v| %>
+      <%if v.class == Hash %>
+        <div class="box">
+          <h4>Robots in each <%= k.capitalize %></h4>
+            <ul>
+            <% v.each do |data, count| %>
+              <li><%= data + ": " + count.to_s %></li>
+            <% end %>
+            </ul>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
 
+
+<div style="clear: both;"></div>
 <form method="GET">
   <a href="/robots"> <button type="button" class="btn btn-primary">Robot Index</button></a>
   <a href="/robots/new"><button type="button" class="btn btn-success">New Robot</button></a>

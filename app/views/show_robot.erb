@@ -1,12 +1,14 @@
-<a href="/robots">Robot Index</a>
-<br>
-<img src="https://robohash.org/<%= @robot.name %>">
-<h1>Name: <%= @robot.name %></h1>
-<p>Location: <%= @robot.city + ", " + @robot.state %></p>
-<p>Department: <%= @robot.department %></p>
+<div class="box">
+  <img src="https://robohash.org/<%= @robot.name %>">
+  <h1><%= @robot.name %></h1>
+  <p>Location: <%= @robot.city + ", " + @robot.state %></p>
+  <p>Department: <%= @robot.department %></p>
 
-<a href="/robots/<%= @robot.id  %>/edit">Edit</a>
-<form action="/robots/<%= @robot.id %>" method="POST">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="delete"/>
-</form>
+  <form action="/robots/<%= @robot.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <a href="/robots/<%= @robot.id  %>/edit" class="btn btn-warning">Edit</a>
+    <input type="submit" class="btn btn-danger" value="Delete"/>
+  </form>
+</div>
+<div style="clear: both;"></div>
+<a href="/robots" type="button" class="btn btn-primary">Robot Index</a>
